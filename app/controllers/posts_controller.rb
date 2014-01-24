@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 	# GET /posts/new
 	# a 'plain view'
 	def new
+		# we have to create an empty one here for the new partial form to work
+		@post = Post.new
 	end
 
 	# POST /posts/create
@@ -47,6 +49,13 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+
+		redirect_to posts_path
 	end
 
 	private

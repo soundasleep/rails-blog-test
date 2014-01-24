@@ -1,36 +1,5 @@
 <h1>Create a new post</h1>
 
-<%= form_for :post, url: posts_path do |f| %>
-	<% # alternatively, we could have set @post to Post.new and remove the 'if @post' check %>
-	<% if @post and @post.errors.any? %>
-	<blockquote>
-		<h2><%= pluralize(@post.errors.count, "error") %> were found:</h2>
-		<ul>
-			<% @post.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</blockquote>
-	<% end %>
+<%= render 'form' %>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-
- 	<p>
- 		<%= f.label :allow_comments %><br>
- 		<%= f.check_box :allow_comments, { checked: true } %>
- 	</p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to "Cancel edit", post_path(@post) %>
+<%= link_to "Cancel edit", posts_path %>
