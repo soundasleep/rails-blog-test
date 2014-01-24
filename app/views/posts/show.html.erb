@@ -10,7 +10,7 @@
 	<% @post.comments.each do |comment| %>
 	<p>
 		<b><%= comment.author %>:</b> <%= comment.text %>
-		(<%= comment.created_at %>)
+		(<abbr title="<%= h(comment.created_at) %>"><%= time_ago_in_words(comment.created_at) %> ago</abbr>)
 	</p>
 	<% end %>
 <% end %>
@@ -38,7 +38,7 @@
 <% end %>
 
 <p>
-Created <%= @post.created_at %>,
+Created <abbr title="<%= h(@post.created_at) %>"><%= time_ago_in_words(@post.created_at) %> ago</abbr>,
 comments are <%= @post.allow_comments ? "allowed" : "not allowed" %>
 </p>
 
