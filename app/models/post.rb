@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
 	# added manually
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	
 	# constraints? or just validation?
 	validates :title, 
