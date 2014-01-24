@@ -1,7 +1,7 @@
 <h1><%= @post.title %></h1>
 
-<blockquote>
-<%= @post.text %>
+<blockquote class="post">
+<%= markdown @post.text %>
 </blockquote>
 
 <% if @post.comments.any? then %>

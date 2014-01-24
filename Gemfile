@@ -33,6 +33,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# for markdown rendering
+gem 'redcarpet'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -1,4 +1,4 @@
-	<p>
-		<b><%= comment.author %>:</b> <%= comment.text %>
+	<div>
+		<b><%= comment.author %>:</b> <div class="comment"><%= markdown comment.text %></div>
 		(<abbr title="<%= h(comment.created_at) %>"><%= time_ago_in_words(comment.created_at) %> ago</abbr>)
-	</p>
+	</div>
