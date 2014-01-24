@@ -1,0 +1,4 @@
+	<p>
+		<b><%= comment.author %>:</b> <%= comment.text %>
+		(<abbr title="<%= h(comment.created_at) %>"><%= time_ago_in_words(comment.created_at) %> ago</abbr>)
+	</p>

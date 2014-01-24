@@ -7,32 +7,14 @@
 <% if @post.comments.any? then %>
 	<h2>Comments</h2>
 
-	<% @post.comments.each do |comment| %>
-	<p>
-		<b><%= comment.author %>:</b> <%= comment.text %>
-		(<abbr title="<%= h(comment.created_at) %>"><%= time_ago_in_words(comment.created_at) %> ago</abbr>)
-	</p>
-	<% end %>
+	<% # equivalent to  @post.comments.each do |comment| { ... render fields ... } %>
+	<%= render @post.comments %>
 <% end %>
 
 <% if @post.allow_comments then %>
 	<h2>Add a comment</h2>
 
-	<%= form_for([@post, @post.comments.build]) do |f| %>
-		<p>
-			<%= f.label :author %>
-			<%= f.text_field :author %>
-		</p>
-
-		<p>
-			<%= f.label :text %>
-			<%= f.text_area :text %>
-		</p>
-
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
+	<%= render "comments/form" %>
 <% else %>
 	<h2>Comments are disabled</h2>
 <% end %>
