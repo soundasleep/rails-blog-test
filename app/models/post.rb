@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+	# added manually
+	has_many :comments
 	
 	# constraints? or just validation?
 	validates :title, 

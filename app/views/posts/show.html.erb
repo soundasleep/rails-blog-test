@@ -4,6 +4,39 @@
 <%= @post.text %>
 </blockquote>
 
+<% if @post.comments.any? then %>
+	<h2>Comments</h2>
+
+	<% @post.comments.each do |comment| %>
+	<p>
+		<b><%= comment.author %>:</b> <%= comment.text %>
+		(<%= comment.created_at %>)
+	</p>
+	<% end %>
+<% end %>
+
+<% if @post.allow_comments then %>
+	<h2>Add a comment</h2>
+
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+		<p>
+			<%= f.label :author %>
+			<%= f.text_field :author %>
+		</p>
+
+		<p>
+			<%= f.label :text %>
+			<%= f.text_area :text %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+<% else %>
+	<h2>Comments are disabled</h2>
+<% end %>
+
 <p>
 Created <%= @post.created_at %>,
 comments are <%= @post.allow_comments ? "allowed" : "not allowed" %>
