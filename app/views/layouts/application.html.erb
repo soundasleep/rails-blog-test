@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<p>
+	<% if logged_in? %>
+	You are logged in as <%= current_user.openid_identity %>. <%= link_to "Logout", session_path, method: 'delete' %>
+	<% else %>
+	You are not logged in. <%= link_to "Login", new_session_path %>
+	<% end %>
+</p>
+
 <%= yield %>
 
 </body>
