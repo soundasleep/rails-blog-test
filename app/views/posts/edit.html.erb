@@ -1,6 +1,6 @@
 <h1>Create a new post</h1>
 
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
 	<% # alternatively, we could have set @post to Post.new and remove the 'if @post' check %>
 	<% if @post and @post.errors.any? %>
 	<blockquote>
@@ -33,4 +33,4 @@
   </p>
 <% end %>
 
-<%= link_to "Cancel edit", post_path(@post) %>
+<%= link_to "Cancel post edit", posts_path %>
