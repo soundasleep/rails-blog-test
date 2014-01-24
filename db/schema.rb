@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124015937) do
+ActiveRecord::Schema.define(version: 20140124031842) do
 
   create_table "comments", force: true do |t|
     t.string   "author"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20140124015937) do
     t.boolean  "allow_comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "openid_identity"
+    t.datetime "created_at"
+    t.string   "name"
+    t.datetime "updated_at"
+    t.date     "last_login"
+    t.string   "remember_token"
   end
 
 end

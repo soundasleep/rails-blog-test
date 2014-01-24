@@ -36,6 +36,10 @@ end
 # for markdown rendering
 gem 'redcarpet'
 
+# for OpenID authenticaton
+gem 'ruby-openid'
+gem 'open_id_authentication'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

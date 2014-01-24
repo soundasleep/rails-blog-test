@@ -18,6 +18,8 @@ RailsBlogTest::Application.routes.draw do
     resources :comments
   end
 
+  resource :session, only: [:new, :create, :destroy]
+
   # Example resource route with options:
   #   resources :products do
   #     member do

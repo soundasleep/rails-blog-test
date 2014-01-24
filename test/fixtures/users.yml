@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  openid_identity: MyString
+  created_at: 2014-01-24
+  name: MyString
+
+two:
+  openid_identity: MyString
+  created_at: 2014-01-24
+  name: MyString

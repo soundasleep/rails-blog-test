@@ -1,0 +1,26 @@
+<h1>Login</h1>
+
+<% if @result and !@result.successful? %>
+	<p>
+		Login failed: <%= @result.message %>
+	</p>
+<% end %>
+
+<% # remember session_url is a helper generated for controller 'sessions' %>
+<%= form_tag(session_url) do %>
+	<p>
+		<label> OpenID URL: <%= text_field_tag "openid_identifier" %></label>
+	</p>
+
+	<p>
+		<%= submit_tag "Sign in" %>
+	</p>
+<% end %>
+
+<h2>User list</h2>
+
+<ul>
+<% User.all.each do |u| %>
+	<li>User <%= u.openid_identity %>: <%= u.name %> (<%= u.created_at %>)</li>
+<% end %>
+</ul>
